@@ -1,0 +1,3 @@
+# Copy to terraform.tfvars and fill in your values.
+endpoint = "https://link.example.com"
+api_key  = "replace-me"

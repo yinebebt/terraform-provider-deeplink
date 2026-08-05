@@ -1,0 +1,20 @@
+# Local Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Secrets / local values
+terraform.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Built provider binary
+terraform-provider-deeplink
+/bin/
