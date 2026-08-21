@@ -94,7 +94,8 @@ Do not commit `terraform.tfvars`.
 ## Building from source
 
 ```bash
-go test ./...
+go test ./...           # unit tests; TestAcc* skipped
+TF_ACC=1 go test ./...  # acceptance tests (needs terraform on PATH)
 go build -o terraform-provider-deeplink
 ```
 

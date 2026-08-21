@@ -2,7 +2,7 @@ terraform {
   required_providers {
     deeplink = {
       source  = "yinebebt/deeplink"
-      version = "0.1.0"
+      version = "0.1.1"
     }
   }
 }

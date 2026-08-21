@@ -11,7 +11,7 @@ import (
 //go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs generate -provider-name deeplink
 
 // Set at release with: -ldflags="-X main.version=vX.Y.Z"
-var version = "0.1.0"
+var version = "dev"
 
 func main() {
 	var debug bool

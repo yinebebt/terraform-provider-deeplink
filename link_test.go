@@ -19,6 +19,10 @@ import (
 var testEndpoint string
 
 func TestMain(m *testing.M) {
+	if os.Getenv("TF_ACC") == "" {
+		os.Exit(m.Run())
+	}
+
 	store := deeplink.NewMemoryStore()
 	svc, err := deeplink.New(deeplink.Config{
 		BaseURL: "http://deeplink.test/",
@@ -30,11 +34,11 @@ func TestMain(m *testing.M) {
 	svc.Register(deeplink.RedirectProcessor{})
 
 	srv := httptest.NewServer(svc.Handler())
-	defer srv.Close()
-	defer svc.Close() //nolint:errcheck
-
 	testEndpoint = srv.URL
-	os.Exit(m.Run())
+	code := m.Run()
+	srv.Close()
+	_ = svc.Close()
+	os.Exit(code)
 }
 
 func testAccProtoV6ProviderFactories() map[string]func() (tfprotov6.ProviderServer, error) {
