@@ -95,7 +95,7 @@ Do not commit `terraform.tfvars`.
 
 ```bash
 go test ./...           # unit tests; TestAcc* skipped
-TF_ACC=1 go test ./...  # acceptance tests (needs terraform on PATH)
+TF_ACC=1 go test ./...  # + acceptance tests (needs terraform on PATH)
 go build -o terraform-provider-deeplink
 ```
 
